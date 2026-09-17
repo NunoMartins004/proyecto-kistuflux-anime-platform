@@ -1,0 +1,87 @@
+.seccion-buscador {
+    padding: 40px 20px;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+.controles {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+#cajaBusqueda,
+#filtroGenero {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ff0000;
+    background: #333;
+    color: white;
+}
+
+.contenedor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta-anime {
+    background: #252525;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border-bottom: 3px solid #ff0000;
+}
+
+.tarjeta-anime:hover {
+    transform: translateY(-10px);
+}
+
+.tarjeta-anime img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.tarjeta-info {
+    padding: 15px;
+}
+
+.etiqueta-genero {
+    font-size: 0.7rem;
+    background: #ff0000;
+    padding: 3px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.tarjeta-info h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.tarjeta-info p {
+    font-size: 0.9rem;
+    color: #ccc;
+    height: 60px;
+    overflow: hidden;
+}
+
+.tarjeta-info button {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #ff0000;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.tarjeta-info button:hover {
+    background: #ff0000;
+}
