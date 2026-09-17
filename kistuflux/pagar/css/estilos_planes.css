@@ -1,0 +1,108 @@
+.contenedor-planes {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.titulo-planes {
+    color: #ff0000;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.grid-planes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.tarjeta-plan {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    padding: 40px;
+    border-radius: 20px;
+    width: 300px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tarjeta-plan:hover {
+    transform: translateY(-10px);
+    border-color: #ff0000;
+}
+
+.tarjeta-plan.destacado {
+    border: 2px solid #ff0000;
+    scale: 1.05;
+}
+
+.precio {
+    font-size: 3rem;
+    color: white;
+    margin: 20px 0;
+}
+
+.precio span {
+    font-size: 1rem;
+    color: #777;
+}
+
+.beneficios-lista {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    text-align: left;
+    color: #ccc;
+}
+
+.beneficios-lista li {
+    margin-bottom: 15px;
+}
+
+.beneficios-lista li::before {
+    content: "✓";
+    color: #ff0000;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.btn-elegir {
+    display: block;
+    background-color: #ffb100;
+    color: black;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-elegir:hover {
+    background-color: #ffb100;
+    box-shadow: 0 0 15px rgba(255, 177, 0, 0.4);
+}
+
+.badge-popular {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff0000;
+    color: black;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-top: 40px;
+    color: #666;
+    text-decoration: none;
+}
+
+.btn-volver:hover { color: white; }

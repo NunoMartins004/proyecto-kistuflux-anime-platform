@@ -1,0 +1,97 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+main {
+    background-color: #1a1a1a;
+}
+
+.seccion-recientes {
+    padding-top: 20px;
+}
+
+.seccion-recientes h2 {
+    margin: 10px;
+}
+
+.centrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contenedor-episodios {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card-episodio {
+    background-color: #181818;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 1px solid red;
+}
+
+.card-episodio:hover {
+    background-color: #252525;
+    transform: translateY(-3px);
+}
+
+.poster-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.poster-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge-episodio {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 4px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.info-episodio {
+    padding: 12px;
+}
+
+.anime-titulo {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.episodio-titulo {
+    color: #b3b3b3;
+    font-size: 13px;
+    margin: 0;
+    font-weight: 400;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2; 
+    overflow: hidden;
+    line-height: 1.4em;
+    max-height: 2.8em;
+}

@@ -1,0 +1,91 @@
+/* --- ESTILOS GENERALES --- */
+.body-suscripcion {
+    background-color: #0b0b0b;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Centrado de la tarjeta */
+.area-centrada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px); 
+    padding: 20px;
+}
+
+/* --- LA TARJETA --- */
+.contenedor-pago {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid #333;
+}
+
+.contenedor-pago h1 {
+    color: #ff0000;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.contenedor-pago p {
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+/* Lista de beneficios SIN el check verde */
+.beneficios {
+    text-align: left;
+    margin-bottom: 30px;
+    padding: 0;
+    list-style: none;
+}
+
+.beneficios li {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    color: #eee;
+}
+
+/* En lugar del check verde, ponemos un punto dorado minimalista */
+.beneficios li::before {
+    content: "•"; 
+    color: #ff0000;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: 5px;
+    font-size: 1.5rem;
+}
+
+/* --- CONTENEDOR PAYPAL --- */
+#paypal-button-container {
+    background-color: white; 
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    border: 1px solid gold;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 150px; 
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-top: 25px;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn-volver:hover {
+    color: #ff0000;
+}
