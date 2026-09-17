@@ -1,0 +1,512 @@
+/* ==========================================================================
+   1. CONFIGURACIÓN GLOBAL Y RESET
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0f0f0f;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+#titulo {
+    color: red;
+}
+
+/* ==========================================================================
+   2. HEADER (ESTILO GENERAL)
+   ========================================================================== */
+header {
+    width: 100%;
+    height: 120px;
+    padding: 0 4%;
+    margin-bottom: 10px;
+    background-image: url("imagenesBanner/bannerKitsuFlux.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   3. NAVEGACIÓN Y BLOQUE DE USUARIO
+   ========================================================================== */
+
+/* Contenedor de botones fuera del desplegable */
+.nav-principal {
+    display: flex !important;
+    gap: 15px !important;
+    margin-left: auto; 
+    margin-right: 30px;
+    flex-direction: row !important;
+    align-items: center !important;
+}
+
+.nav-principal a {
+    border: 1px solid #ff0000 !important;
+    padding: 8px 15px !important;
+    border-radius: 5px !important;
+    background: rgba(0, 0, 0, 0.4);
+    color: white !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: 0.3s !important;
+}
+
+.nav-principal a:hover {
+    background: rgba(255, 0, 0, 0.2) !important;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3) !important;
+}
+
+/* Estilo especial para el botón de Admin */
+.nav-principal a.btn-admin {
+    border: 2px solid orangered !important;
+    color: white !important;
+    font-weight: bold !important;
+    background: rgba(255, 69, 0, 0.1) !important;
+}
+
+/* --- LA PERSIANA (DESPLEGABLE) --- */
+.user-control {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.user-dropdown {
+    position: relative !important;
+}
+
+/* El menú que cae */
+.dropdown-menu {
+    position: absolute !important;
+    right: 0 !important;
+    top: 100% !important;
+    margin-top: 10px !important;
+    background-color: #121212 !important;
+    min-width: 200px !important;
+    border: 1px solid red !important;
+    border-radius: 8px !important;
+    z-index: 9999 !important;
+    padding: 0 !important;
+    
+    /* FORZAR VERTICALIDAD */
+    display: flex !important;
+    flex-direction: column !important; 
+    list-style: none !important;
+    
+    /* Animación */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease;
+}
+
+.user-dropdown:hover .dropdown-menu {
+    max-height: 500px !important;
+    opacity: 1 !important;
+    padding: 10px 0 !important;
+}
+
+/* Forzar que cada LI ocupe toda la fila y no flote */
+.dropdown-menu li {
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+    clear: both !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.dropdown-menu li a {
+    color: white !important;
+    padding: 12px 20px !important;
+    display: block !important; /* Muy importante para que sea clickeable en toda la fila */
+    text-align: left !important;
+    text-decoration: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(255, 0, 0, 0.2) !important;
+    padding-left: 25px !important;
+}
+
+/* Separador horizontal */
+.divider {
+    height: 1px !important;
+    background-color: #333 !important;
+    margin: 8px 10px !important;
+    display: block !important;
+    width: auto !important;
+}
+
+/* Otros estilos del avatar */
+.avatar-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    cursor: pointer !important;
+    padding: 5px 15px !important;
+    border: 1px solid rgba(255, 69, 0, 0.4) !important;
+    border-radius: 30px !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.avatar-fuego {
+    width: 40px; height: 40px; border-radius: 50%;
+    padding: 2px; background: orangered;
+    display: flex; justify-content: center; align-items: center;
+}
+.avatar-fuego img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+
+/* ==========================================================================
+   4. LOGIN Y REGISTRO (ESTILO BODY Y HEADER FLOTANTE)
+   ========================================================================== */
+.login-body {
+    min-height: 100vh; /* Permite que la pantalla crezca si es necesario */
+    display: flex;
+    flex-direction: column; /* Alinea Header arriba y Formulario abajo */
+    justify-content: flex-start; /* Alinea al inicio, no al centro */
+    align-items: center;
+    background: radial-gradient(circle, #1a1a1a 0%, #080808 100%);
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Habilita el scroll si el formulario es largo */
+}
+
+/* Header flotante exclusivo para Login/Registro */
+.login-body header {
+    position: relative; /* Cambiado de absolute */
+    width: 100%;
+    flex-shrink: 0; /* Evita que el header se aplaste en pantallas pequeñas */
+    z-index: 1000;
+    /* Asegúrate de quitar el background-image: none si quieres ver el banner */
+}
+
+/* La caja del formulario */
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background-color: #121212;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    border: 2px solid transparent;
+    background-image: linear-gradient(#121212, #121212), 
+                       orangered;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    border: 2px solid red;
+}
+
+.login-box h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.login-box h1 span {
+    color: #ff0000;
+}
+
+.login-box p {
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* Inputs y botones */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: #1d1d1d;
+    border: 1px solid #333;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #ff4500;
+}
+
+.btn-fuego {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: orangered;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-fuego:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+}
+
+.login-footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.login-footer a {
+    color: orangered;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   5. INPUT DE ARCHIVOS (REGISTRO)
+   ========================================================================== */
+.file-input-container {
+    margin: 20px 0;
+    text-align: left;
+    width: 100%;
+}
+
+.file-input-container label {
+    display: block;
+    margin-bottom: 10px;
+    color: #bbb;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+input[type="file"] {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 8px;
+    color: orangered;
+    width: 100%;
+    cursor: pointer;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background: orangered;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+/* ==========================================================================
+   6. ESTILOS DEL FOOTER
+   ========================================================================== */
+.footer-kitsu {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    padding: 60px 4% 20px !important;
+    margin-top: 50px !important;
+    border-top: 2px solid red !important;
+    font-family: 'Segoe UI', sans-serif;
+    clear: both !important;
+    position: relative;
+    z-index: 10;
+    display: block !important;
+    width: 100% !important;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    text-align: left !important; /* Evita que el admin lo centre a la fuerza */
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.footer-logo span {
+    color: red;
+}
+
+.footer-column p {
+    color: #888;
+    line-height: 1.6;
+}
+
+.footer-column h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #fff !important;
+}
+
+.footer-column ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important; /* Fuerza la lista vertical */
+}
+
+.footer-column ul li {
+    margin-bottom: 12px !important;
+    display: block !important; /* Cada enlace en su propia fila */
+    width: 100% !important;
+}
+
+.footer-column ul li a {
+    color: #888 !important;
+    text-decoration: none !important;
+    transition: 0.3s;
+    font-size: 0.95rem;
+    display: inline-block !important;
+}
+
+.footer-column ul li a:hover {
+    color: red !important;
+    padding-left: 8px !important;
+}
+
+/* --- PARTE INFERIOR --- */
+.footer-bottom {
+    margin-top: 50px !important;
+    padding-top: 20px !important;
+    border-top: 1px solid #1a1a1a !important;
+    text-align: center !important;
+    font-size: 0.85rem !important;
+    color: #555 !important;
+    width: 100% !important;
+}
+
+.badge-pro-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #d4af37, #f7ef8a); /* Degradado dorado */
+    color: #1a1a1a; /* Texto oscuro para contraste */
+    font-weight: bold;
+    font-size: 0.9em;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: default;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Opcional: Un pequeño efecto al pasar el ratón */
+.badge-pro-menu:hover {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+/* Adaptación para móviles */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-column {
+        text-align: center !important;
+    }
+}
+
+/* MODAL*/
+
+/* Contenedor principal: Cubre toda la pantalla */
+.modal-emergente {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro translúcido */
+    z-index: 10000; /* Por encima de la sidebar y el header */
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px); /* Efecto de desenfoque al fondo */
+}
+
+/* La "pestaña" o caja blanca/oscura */
+.modal-contenido-box {
+    background: #1a1a1a;
+    color: white;
+    width: 90%;
+    max-width: 450px;
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #ff4444; /* Rojo KitsuFlux */
+    box-shadow: 0 0 30px rgba(255, 68, 68, 0.3);
+    text-align: center;
+    
+    /* Animación de entrada */
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+}
+
+/* Cuando el modal se activa */
+.modal-emergente.active {
+    display: flex;
+}
+
+.modal-emergente.active .modal-contenido-box {
+    transform: scale(1); /* Crece al aparecer */
+}
+
+/* Estilo de los botones dentro del modal */
+.modal-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-fuego {
+    background: orangered;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-oscuro {
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
