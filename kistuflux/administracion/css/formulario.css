@@ -1,0 +1,104 @@
+/* Contenedor principal del formulario */
+.contenedor-edicion-ajax {
+    background-color: #1a1a1a;
+    /* Fondo oscuro como el panel */
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    max-width: 600px;
+    margin: 20px auto;
+    color: #fff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.contenedor-edicion-ajax h2 {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ff4500;
+    /* Línea naranja decorativa */
+    padding-bottom: 10px;
+}
+
+/* Grupos de formulario */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+/* Inputs, Textarea y Select */
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+    background-color: #000;
+    /* Fondo negro para los campos */
+    border: 1px solid #444;
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #ff4500;
+    /* Brillo naranja al seleccionar */
+}
+
+/* Estilo para el área de descripción */
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Botones */
+.btn-save {
+    background-color: #ff4500;
+    /* Naranja como tus botones de EDITAR */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    margin-bottom: 10px;
+    transition: background 0.3s;
+}
+
+.btn-save:hover {
+    background-color: #e63e00;
+}
+
+.btn-back {
+    background-color: transparent;
+    color: #ff4500;
+    border: 1px solid #ff4500;
+    /* Borde naranja como tus botones de ELIMINAR */
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.btn-back:hover {
+    background-color: rgba(255, 69, 0, 0.1);
+}

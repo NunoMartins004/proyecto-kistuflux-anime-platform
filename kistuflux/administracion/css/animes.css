@@ -1,0 +1,139 @@
+.tabla-gestion {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin-top: 20px;
+}
+
+.tabla-gestion th {
+    background-color: #1f1f1f;
+    color: #ff0000; /* Rojo KitsuFlux */
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #ff0000;
+}
+
+/* Alineamos el texto del último encabezado también al centro si los botones están centrados */
+.tabla-gestion th:last-child {
+    text-align: center;
+}
+
+.tabla-gestion td {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+    vertical-align: middle;
+}
+
+/* Estilo para las imágenes en la tabla */
+.tabla-gestion img {
+    width: 50px;
+    display: block;
+    margin: 0 auto; /* Centra la imagen en su celda */
+}
+
+/* ==========================================================================
+   ESTILOS PARA BOTONES DE ACCIÓN (TABLA CORREGIDO)
+   ========================================================================== */
+
+/* Botón Editar (Naranja Sólido) */
+.btn-editar {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    display: inline-block; /* Importante para alineación */
+    margin: 2px;
+}
+
+.btn-editar:hover {
+    background-color: #e63e00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 69, 0, 0.3);
+}
+
+/* Botón Eliminar (Borde Rojo) */
+.action-delete {
+    background-color: transparent;
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    display: inline-block; /* Importante para alineación */
+    margin: 2px;
+}
+
+.action-delete:hover {
+    background-color: #ff4d4d;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3);
+}
+
+/* AJUSTE FINAL: Celda de acciones alineada */
+.tabla-gestion td:last-child {
+    text-align: center; /* Alinea los botones horizontalmente */
+    white-space: nowrap; /* Evita que los botones se salten de línea */
+    width: 200px;
+}
+
+ul{
+
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+   
+    gap: 10px;
+}
+.sidebar h2{
+    display: flex;
+   justify-content: center;
+   margin: 10px;
+}
+.sidebar a ,.sidebar button{
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: orangered;
+    padding: 5px 16px;
+    color: white;
+}
+
+.header-gestion {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center; /* Lo alinea a la derecha */
+}
+.btn-insertar {
+    display: flex;
+    background-color: red; /* Verde para insertar */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-insertar:hover {
+    background-color: orangered;
+}
+
+.header-gestion{
+    margin: 10px;
+}
